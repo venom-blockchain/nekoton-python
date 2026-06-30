@@ -1,0 +1,314 @@
+{
+  "ABI version": 2,
+  "version": "2.7",
+  "header": ["time", "expire"],
+  "functions": [
+    {
+      "name": "constructor",
+      "input_id": "0x46725d47",
+      "externalMsg": false,
+      "inputs": [
+        { "name": "_owner", "type": "address" },
+        { "name": "_meta", "type": "cell" },
+        { "name": "_flags", "type": "uint64" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "getDetails",
+      "input_id": "0x7736ef05",
+      "externalMsg": false,
+      "inputs": [{ "name": "answerId", "type": "uint32" }],
+      "outputs": [
+        {
+          "name": "_basicConfiguration",
+          "type": "tuple",
+          "components": [
+            { "name": "eventABI", "type": "bytes" },
+            { "name": "staking", "type": "address" },
+            { "name": "eventInitialBalance", "type": "uint64" },
+            { "name": "eventCode", "type": "cell" }
+          ]
+        },
+        {
+          "name": "_networkConfiguration",
+          "type": "tuple",
+          "components": [
+            { "name": "chainId", "type": "uint32" },
+            { "name": "eventEmitter", "type": "uint160" },
+            { "name": "eventBlocksToConfirm", "type": "uint16" },
+            { "name": "proxy", "type": "address" },
+            { "name": "startBlockNumber", "type": "uint32" },
+            { "name": "endBlockNumber", "type": "uint32" }
+          ]
+        },
+        { "name": "_meta", "type": "cell" }
+      ]
+    },
+    {
+      "name": "getType",
+      "input_id": "0x45857ed5",
+      "externalMsg": false,
+      "inputs": [{ "name": "answerId", "type": "uint32" }],
+      "outputs": [{ "name": "_type", "type": "uint8" }]
+    },
+    {
+      "name": "getFlags",
+      "input_id": "0x22fd713e",
+      "externalMsg": false,
+      "inputs": [{ "name": "answerId", "type": "uint32" }],
+      "outputs": [{ "name": "_flags", "type": "uint64" }]
+    },
+    {
+      "name": "getEventAction",
+      "input_id": "0x721ddfd7",
+      "externalMsg": false,
+      "inputs": [{ "name": "answerId", "type": "uint32" }],
+      "outputs": [{ "name": "_eventAction", "type": "uint8" }]
+    },
+    {
+      "name": "setMeta",
+      "input_id": "0x3942f649",
+      "externalMsg": false,
+      "inputs": [{ "name": "_meta", "type": "cell" }],
+      "outputs": []
+    },
+    {
+      "name": "setEndBlockNumber",
+      "input_id": "0x63d4926f",
+      "externalMsg": false,
+      "inputs": [{ "name": "endBlockNumber", "type": "uint32" }],
+      "outputs": []
+    },
+    {
+      "name": "setFlags",
+      "input_id": "0x156c8d8e",
+      "externalMsg": false,
+      "inputs": [{ "name": "_flags", "type": "uint64" }],
+      "outputs": []
+    },
+    {
+      "name": "setEventInitialBalance",
+      "input_id": "0x6c492301",
+      "externalMsg": false,
+      "inputs": [{ "name": "eventInitialBalance", "type": "uint64" }],
+      "outputs": []
+    },
+    {
+      "name": "deployEvent",
+      "input_id": "0x44e882be",
+      "externalMsg": false,
+      "inputs": [
+        {
+          "name": "eventVoteData",
+          "type": "tuple",
+          "components": [
+            { "name": "eventTransaction", "type": "uint256" },
+            { "name": "eventIndex", "type": "uint32" },
+            { "name": "eventData", "type": "cell" },
+            { "name": "eventBlockNumber", "type": "uint32" },
+            { "name": "eventBlock", "type": "uint256" }
+          ]
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "deployEvents",
+      "input_id": "0x7be7e773",
+      "externalMsg": false,
+      "inputs": [
+        {
+          "name": "eventsVoteData",
+          "type": "tuple[]",
+          "components": [
+            { "name": "eventTransaction", "type": "uint256" },
+            { "name": "eventIndex", "type": "uint32" },
+            { "name": "eventData", "type": "cell" },
+            { "name": "eventBlockNumber", "type": "uint32" },
+            { "name": "eventBlock", "type": "uint256" }
+          ]
+        },
+        { "name": "values", "type": "varuint16[]" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "deriveEventAddress",
+      "input_id": "0x0602efa4",
+      "externalMsg": false,
+      "inputs": [
+        { "name": "answerId", "type": "uint32" },
+        {
+          "name": "eventVoteData",
+          "type": "tuple",
+          "components": [
+            { "name": "eventTransaction", "type": "uint256" },
+            { "name": "eventIndex", "type": "uint32" },
+            { "name": "eventData", "type": "cell" },
+            { "name": "eventBlockNumber", "type": "uint32" },
+            { "name": "eventBlock", "type": "uint256" }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "eventContract", "type": "address" }]
+    },
+    {
+      "name": "onEventConfirmed",
+      "input_id": "0x0088b721",
+      "externalMsg": false,
+      "inputs": [
+        {
+          "name": "eventInitData",
+          "type": "tuple",
+          "components": [
+            {
+              "name": "voteData",
+              "type": "tuple",
+              "components": [
+                { "name": "eventTransaction", "type": "uint256" },
+                { "name": "eventIndex", "type": "uint32" },
+                { "name": "eventData", "type": "cell" },
+                { "name": "eventBlockNumber", "type": "uint32" },
+                { "name": "eventBlock", "type": "uint256" }
+              ]
+            },
+            { "name": "configuration", "type": "address" },
+            { "name": "staking", "type": "address" },
+            { "name": "chainId", "type": "uint32" }
+          ]
+        },
+        { "name": "gasBackAddress", "type": "address" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "onEventConfirmedExtended",
+      "input_id": "0x0d46d0cf",
+      "externalMsg": false,
+      "inputs": [
+        {
+          "name": "eventInitData",
+          "type": "tuple",
+          "components": [
+            {
+              "name": "voteData",
+              "type": "tuple",
+              "components": [
+                { "name": "eventTransaction", "type": "uint256" },
+                { "name": "eventIndex", "type": "uint32" },
+                { "name": "eventData", "type": "cell" },
+                { "name": "eventBlockNumber", "type": "uint32" },
+                { "name": "eventBlock", "type": "uint256" }
+              ]
+            },
+            { "name": "configuration", "type": "address" },
+            { "name": "staking", "type": "address" },
+            { "name": "chainId", "type": "uint32" }
+          ]
+        },
+        { "name": "_meta", "type": "cell" },
+        { "name": "gasBackAddress", "type": "address" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "onEVMEventCancelled",
+      "input_id": "0x3abbeb9d",
+      "externalMsg": false,
+      "inputs": [
+        {
+          "name": "_eventInitData",
+          "type": "tuple",
+          "components": [
+            {
+              "name": "voteData",
+              "type": "tuple",
+              "components": [
+                { "name": "eventTransaction", "type": "uint256" },
+                { "name": "eventIndex", "type": "uint32" },
+                { "name": "eventData", "type": "cell" },
+                { "name": "eventBlockNumber", "type": "uint32" },
+                { "name": "eventBlock", "type": "uint256" }
+              ]
+            },
+            { "name": "configuration", "type": "address" },
+            { "name": "staking", "type": "address" },
+            { "name": "chainId", "type": "uint32" }
+          ]
+        },
+        { "name": "_withdrawPayload", "type": "cell" }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "owner",
+      "input_id": "0x5f0bcfde",
+      "output_id": "0xdf0bcfde",
+      "externalMsg": true,
+      "inputs": [],
+      "outputs": [{ "name": "value0", "type": "address" }]
+    },
+    {
+      "name": "transferOwnership",
+      "input_id": "0x0e04d29e",
+      "externalMsg": false,
+      "inputs": [{ "name": "newOwner", "type": "address" }],
+      "outputs": []
+    },
+    {
+      "name": "renounceOwnership",
+      "input_id": "0x671538fe",
+      "externalMsg": false,
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "getters": [],
+  "events": [
+    {
+      "name": "OwnershipTransferred",
+      "inputs": [
+        { "name": "previousOwner", "type": "address" },
+        { "name": "newOwner", "type": "address" }
+      ]
+    },
+    {
+      "name": "NewEventContract",
+      "inputs": [{ "name": "eventContract", "type": "address" }]
+    }
+  ],
+  "fields": [
+    { "init": true, "name": "_pubkey", "type": "fixedbytes32" },
+    { "init": false, "name": "_timestamp", "type": "uint64" },
+    { "init": false, "name": "_constructorFlag", "type": "bool" },
+    { "init": false, "name": "_owner", "type": "address" },
+    {
+      "init": true,
+      "name": "basicConfiguration",
+      "type": "tuple",
+      "components": [
+        { "name": "eventABI", "type": "bytes" },
+        { "name": "staking", "type": "address" },
+        { "name": "eventInitialBalance", "type": "uint64" },
+        { "name": "eventCode", "type": "cell" }
+      ]
+    },
+    {
+      "init": true,
+      "name": "networkConfiguration",
+      "type": "tuple",
+      "components": [
+        { "name": "chainId", "type": "uint32" },
+        { "name": "eventEmitter", "type": "uint160" },
+        { "name": "eventBlocksToConfirm", "type": "uint16" },
+        { "name": "proxy", "type": "address" },
+        { "name": "startBlockNumber", "type": "uint32" },
+        { "name": "endBlockNumber", "type": "uint32" }
+      ]
+    },
+    { "init": true, "name": "eventAction", "type": "uint8" },
+    { "init": false, "name": "flags", "type": "uint64" },
+    { "init": false, "name": "meta", "type": "cell" }
+  ]
+}

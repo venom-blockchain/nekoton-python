@@ -663,6 +663,13 @@ impl FunctionAbi {
     ) -> PyResult<ExecutionOutput> {
         use nt::abi::FunctionExt;
 
+        // Insert answer id if none, just in case the responsible method is called.
+        for answer_id in ["_answer_id", "answerId"] {
+            if !input.contains(answer_id)? {
+                input.set_item(answer_id, 0)?;
+            }
+        }
+
         let input = parse_tokens(&self.0.inputs, input)?;
         let clock = match clock {
             Some(clock) => clock.as_ref(),
